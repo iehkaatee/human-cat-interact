@@ -1,17 +1,14 @@
-<p>hoihoihoi</p>
-
-<!-- <div>
-  {{RandomCatObject | json}}
-</div> -->
-
-<div *ngIf="RandomCatObject">
-  <img [src]="RandomCatUrl">
-</div>
-
-<div>
-  <input type="text" #keyword
-  (keyup.enter)="getNewCat(keyword)"
-  class="form-control-lg" placeholder="Enter some text..">
-<button class="btn btn-primary"
- (click)="getNewCat(keyword)">Get a cat</button>
+<div class="main-container">
+  <div class="flex column smol-gap center dev-padding">
+    <div class="flex center smol-gap">
+      <input type="text" #keyword (keyup.enter)="getNewCat(keyword)" class="form-control-lg"
+        placeholder="Enter some text..">
+      <button class="btn btn-primary" (click)="getNewCat(keyword)">Get a cat</button>
+    </div>
+    <div class="row">
+      <div *ngIf="RandomCatObject">
+        <img [src]="RandomCatUrl">
+      </div>
+    </div>
+  </div>
 </div>

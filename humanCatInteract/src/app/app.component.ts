@@ -14,20 +14,24 @@ export class AppComponent {
   constructor(private catConnect: CatConnectService) { }
 
   get RandomCatUrl() {
-    return this.catConnect.BaseUrl + this.RandomCatObject.url;
+    const basicUrl = this.catConnect.BaseUrl + this.RandomCatObject.url;
+    return this.catSays ? basicUrl + '/says/' + this.catSays : basicUrl;
   }
 
   getNewCat(inputEl: HTMLInputElement) {
     this._catSays = inputEl.value;
     inputEl.value = '';
     this.catConnect.getRandomCat().subscribe(cat => {
-      // this._randoUrl = this.catConnect.BaseUrl + cat.url;
       this._randCatObj = cat;
     });
   }
 
   get RandomCatObject() {
     return this._randCatObj;
+  }
+
+  get catSays() {
+    return this._catSays;
   }
 
 }

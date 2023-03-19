@@ -1,14 +1,26 @@
 <div class="main-container">
   <div class="flex column smol-gap center dev-padding">
     <div class="flex center smol-gap">
+      <select (change)="selectChange($event)" name="answers" id="answers">
+        <option value="-1">meow meow meow...</option>
+        <option *ngFor="let ans of answers" [value]="ans.id" >{{ans.text}}</option>
+      </select>
       <input type="text" #keyword (keyup.enter)="getNewCat(keyword)" class="form-control-lg"
         placeholder="Enter some text..">
       <button class="btn btn-primary" (click)="getNewCat(keyword)">Get a cat</button>
     </div>
     <div class="row">
       <div *ngIf="RandomCatObject">
-        <img [src]="RandomCatUrl">
+        <a [href]="RandomCatUrl" target="_blank"><img [src]="RandomCatUrl"></a>
       </div>
     </div>
+    <!-- <div class="row" *ngIf="answers.length >= 1">
+      {{ _selectedItemId}}
+      <ul>
+        <li *ngFor="let answer of answers; index as i" (click)="selectAnswer(answer.id)" [ngClass]="{'selected': getItemStatus(answer.id)  }">
+          text: {{answer.text}}
+        </li>
+      </ul>
+    </div> -->
   </div>
 </div>

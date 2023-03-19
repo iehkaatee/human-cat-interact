@@ -10,5 +10,12 @@
         <img [src]="RandomCatUrl">
       </div>
     </div>
+    <div class="row" *ngIf="answers.length >= 1">
+      <ul>
+        <li *ngFor="let answer of answers" (click)="selectAnswer(answer)" ngClass="">
+          {{answer}}
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

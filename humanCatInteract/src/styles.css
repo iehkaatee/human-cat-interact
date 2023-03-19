@@ -28,3 +28,7 @@ height: 100%;
 .dev-padding {
     padding: 100px 100px;
 }
+
+.selected {
+    background-color: rgb(212, 230, 230);
+}
